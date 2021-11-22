@@ -116,7 +116,7 @@ if (isset($_POST['formSingup'])&& !empty($_POST['email']) && !empty($_POST['pass
 											<label class="form-label">Repeat Password</label>
 											<input class="form-control form-control-lg" type="password" name="passwordB" placeholder="Enter password" />
 										</div> 
-										<button type="submit" class="btn btn-lg btn-primary" name="formSingup">Registrar un Colaborador</button>
+										<button type="submit" class="btn btn-lg btn-outline-dark"  name="formSingup">Registrar un Colaborador</button>
 									</form>
 								</div>
 							</div>

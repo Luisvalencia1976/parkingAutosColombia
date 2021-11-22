@@ -80,8 +80,7 @@ require_once('mysql.php');
 							</p>
 						</div>
 
-						<div class="card">
-							<div class="card-body">
+						<div class="card-body">
 								<div class="m-sm-4">
 									<div class="text-center">
 										<img src="img\avatars\avatar.png" alt="XXX" class="img-fluid rounded-circle" width="132" height="132" />
@@ -94,6 +93,7 @@ require_once('mysql.php');
 										<div class="mb-3">
 											<label class="form-label">Password</label>
 											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
+											<br>
 											<small>
 												<a href="index.html">Forgot password?</a>
 											</small>
@@ -105,9 +105,10 @@ require_once('mysql.php');
 													Remember me next time
 												</span>
 											</label>
+											<br>
 										</div>
 
-										<button type="submit" class="btn btn-lg btn-primary" name="formSingin">Iniciar Sesión</button>
+										<button type="submit" class="btn btn-lg btn-outline-dark" name="formSingin">Iniciar Sesión</button>
 									</form>
 								</div>
 							</div>
