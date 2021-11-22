@@ -74,9 +74,9 @@ require_once('mysql.php');
 					<div class="d-table-cell align-middle">
 
 						<div class="text-center mt-4">
-							<h1 class="h2">Welcome back,</h1>
+							<h1 class="h2">Bienvenido a Autos Colombia,</h1>
 							<p class="lead">
-								Sign in to your account to continue
+								Inicia Sesión con tu cuenta para continuar
 							</p>
 						</div>
 

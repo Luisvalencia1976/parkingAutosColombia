@@ -88,10 +88,14 @@ if (isset($_POST['formasignarCelda'])) {
 								<div class="m-sm-4">
 									<form action="pages-registro-celda.php" method="post">
 									<div class="mb-3">
+									<p class="lead">
+								Ingresa los datos del vehiculo:
+							</p>
 											<label class="form-label">id</label>
 											<input class="form-control form-control-lg" readonly type="text" name="id" value="<?php echo $_GET['id'] ?>"  />
 										</div>
-										<div class="mb-3">_
+										<div class="mb-3">
+
 											<label class="form-label">Placa</label>
 											<input class="form-control form-control-lg" type="text" name="placa" placeholder="Enter license plate " />
 										</div>

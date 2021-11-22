@@ -38,11 +38,13 @@ if (isset($_POST['formSingup'])&& !empty($_POST['email']) && !empty($_POST['pass
             </div>
         <?php
         } else {
+			header('Location: /parking/pages-sign-in.php');
         ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
+		
+            <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Usuario</strong> registrado satisfactoriamente.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            </div> -->
         <?php
             $stmt->close();
         }
@@ -114,7 +116,7 @@ if (isset($_POST['formSingup'])&& !empty($_POST['email']) && !empty($_POST['pass
 											<label class="form-label">Repeat Password</label>
 											<input class="form-control form-control-lg" type="password" name="passwordB" placeholder="Enter password" />
 										</div> 
-										<button type="submit" class="btn btn-lg btn-primary" name="formSingup">Sign Up</button>
+										<button type="submit" class="btn btn-lg btn-primary" name="formSingup">Registrar un Colaborador</button>
 									</form>
 								</div>
 							</div>

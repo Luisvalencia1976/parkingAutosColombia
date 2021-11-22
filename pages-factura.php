@@ -22,12 +22,14 @@ if (isset($_SESSION['user_email'])) {
 if (isset($_POST['formFacturar'])) {
 
 
-    $stmt = $conn->prepare("UPDATE  celdas  SET  estado = ? WHERE id = ?");
-    $stmt->bind_param("ii", $estado, $id);
+    $stmt = $conn->prepare("UPDATE  celdas  SET placa = ?, tipocobro = ?, estado = ?, horaingreso = ? WHERE id = ?");
+	$stmt->bind_param("ssisi", $placa, $tipocobro , $estado, $horaingreso,  $id);
+	$placa = "";
+	$tipocobro = "";
+	$estado = 0;
+	$horaingreso = "";
+	$id =$_POST['id'];
 
-    $estado = 0;
-
-    $id = $_POST['id'];
 
 
     if ($stmt->execute()) {
@@ -87,46 +89,62 @@ if (isset($_POST['formFacturar'])) {
                                 <div class="m-sm-4">
                                     <form action="pages-factura.php" method="post">
                                         <div class="mb-3">
+                                            <p class="lead">
+                                                Facturacion de Servicios de Parqueadero:
+                                            </p>
                                             <label class="form-label">id</label>
                                             <input class="form-control form-control-lg" readonly type="text" name="id" value="<?php echo $_GET['id'] ?>" />
                                         </div>
+                                        <?php
+                                        $idvalue=$_GET['id'] ;
+                                        $sql = ("SELECT* FROM celdas WHERE id=$idvalue ");
+                                        $stmt = $conn->prepare($sql);
+                                        $stmt->execute();
+                                        $result = $stmt->get_result();
+                                        if (!$sql) {
+                                            echo 'No se pudo ejecutar la consulta: ';
+                                            exit;
+                                        }
+                                        $row = $result->fetch_row();
+
                                         
+                                        ?>
+                                        <div class="mb-3">_
+                                            <label class="form-label">Tipo de Vehiculo</label>
+                                            <input class="form-control form-control-lg" readonly type="text" name="placa" value="<?php echo $row[2]; ?>" />
+                                        </div>
+
                                         <div class="mb-3">_
                                             <label class="form-label">Placa</label>
-                                            <input class="form-control form-control-lg" readonly type="text" name="placa" value="<?php echo $_GET['placa'] ?>" />
+                                            <input class="form-control form-control-lg" readonly type="text" name="placa" value="<?php echo $row[1]; ?>" />
+                                        </div>
+                                        <div class="mb-3">_
+                                            <label class="form-label">Modalidad</label>
+                                            <input class="form-control form-control-lg" readonly type="text" name="placa" value="<?php echo $row[3]; ?>" />
                                         </div>
 
-                                        <div class="mb-3">
-                                            <label class="form-label">Cobro por:</label>
-                                            <select class="form-select mb-3" name="tipocobro">
-                                                <option selected="">Selecciona una Opción</option>
-                                                <option>horas</option>
-                                                <option>mensualidad</option>
-
-
-                                            </select>
-                                        </div>
+                                        
                                         <div class="mb-3">
                                             <label class="form-label">Hora de Ingreso</label>
-                                            <input class="form-control form-control-lg" type="time" name="horaingreso" value="<?php echo $_GET['horaingreso'] ?>" />
+                                            <input class="form-control form-control-lg" type="time" name="horaingreso" value="<?php echo $row [5] ?>" />
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Hora de Salida</label>
-                                            <input class="form-control form-control-lg" type="time" name="horasalida" placeholder="Enter departure time" />
+                                            <input class="form-control form-control-lg" type="time" name="horasalida"  placeholder="Enter departure time" />
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Inicio Mensualidad</label>
-                                            <input class="form-control form-control-lg" type="date" name="iniciomensualidad" placeholder="Enter monthly payment start" />
+                                            <input class="form-control form-control-lg" type="date" name="iniciomensualidad"  value="<?php echo $row [7] ?>  placeholder="Enter monthly payment start" />
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Fin Mensualidad</label>
-                                            <input class="form-control form-control-lg" type="date" name="finmensualidad" placeholder="Enter end of monthly payment" />
+                                            <input class="form-control form-control-lg" type="date" name="finmensualidad" value="<?php echo $row [8] ?>  placeholder="Enter end of monthly payment" />
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Valor a Pagar</label>
                                             <input class="form-control form-control-lg" type="text" name="pago" placeholder="Enter value" />
                                         </div>
-                                        <button type="submit" class="btn btn-lg btn-primary" name="formFacturar">Registrar Entrada</button>
+                                        <button type="submit" class="btn btn-lg btn-primary" name="formFacturar">Registrar Pago</button>
                                     </form>
                                 </div>
                             </div>
