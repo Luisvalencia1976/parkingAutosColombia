@@ -183,7 +183,6 @@ session_start();
 								echo 			'<a class="btn btn-outline-light me-2" href="pages-registro-celda.php?id='.$row['id'].'">Asignar </a>';
 
 								
-								echo          '<h4>CELDA#'. $row['id'] . '</h4>';
 								echo          '<h6>CELDA#'. $row['id'] . '</h6>';
 								echo       '</div>';
 								echo        '<small class="text-muted"></small>';
