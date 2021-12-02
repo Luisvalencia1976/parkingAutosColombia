@@ -180,7 +180,7 @@ session_start();
 								echo     ' <div class="card-body">';								
 								echo       '<div class="d-flex justify-content-between align-items-center">';
 								echo         '<div class="btn-group">';
-								echo 			'<a class="btn btn-outline-light me-2" href="pages-registro-celda.php?id='.$row['id'].'">Asignar </a>';
+								echo 			'<a class="btn btn-primary me-2" href="pages-registro-celda.php?id='.$row['id'].'">Asignar </a>';
 
 								
 								echo          '<h6>CELDA#'. $row['id'] . '</h6>';
@@ -196,7 +196,7 @@ session_start();
 								echo     ' <div class="card-body">';								
 								echo       '<div class="d-flex justify-content-between align-items-center">';
 								echo         '<div class="btn-group">';
-								echo 			'<a class="btn btn-outline-light me-2" href="pages-factura.php?id='.$row['id'].'">Factutar</a>';
+								echo 			'<a class="btn btn-success me-2" href="pages-factura.php?id='.$row['id'].'">Factutar</a>';
 
 								
 								echo          '<h6>CELDA#'. $row['id'] . '</h6>';
